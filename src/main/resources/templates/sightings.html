@@ -1,0 +1,98 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Super Sightings</title>
+  </head>
+<div class="container">
+            <div class="row m-4">
+                <div class="col text-center border border-dark">
+                    <h1><a href="/" class="text-dark">Super Sightings</a></h1>
+                </div>
+            </div>
+            <div class="row m-4 border border-dark">
+                <div class="col text-center m-3">
+                    <a href="supers" class="btn btn-outline-primary btn-lg">Super Persons</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="locations" class="btn btn-outline-primary btn-lg">Locations</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="sightings" class="btn btn-outline-primary btn-lg">Sightings</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="superpowers" class="btn btn-outline-primary btn-lg">Super Powers</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="members" class="btn btn-outline-primary btn-lg">Members</a>
+                </div>
+            </div>
+            <div class="row m-4 border border-dark">
+                <div class="col-3 text-center m-3">
+                    <span class="h3">Add Sighting</span>
+                </div>
+                <div class="col-7 text-center m-3">
+                    <form action="/addSighting" method="POST">
+                        <div class="form-group row">
+                            <label for="datetime" class="col-3 col-form-label">
+                                Date/Time of Sighting</label>
+                            <div class="col-9">
+                                <input type="datetime" name="datetime" 
+                                       id="datetime" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="super" class="col-3 col-form-label">
+                                Super Persons</label>
+                            <div class="col-9">
+                                <select id="super" name="super" class="form-control" >
+                                    <option th:each="super : ${supers}"
+                                            th:value="${super.id}"
+                                            th:text="${super.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="location" class="col-3 col-form-label">
+                                Locations</label>
+                            <div class="col-9">
+                                <select id="location" name="location" class="form-control" >
+                                    <option th:each="location : ${locations}"
+                                            th:value="${location.id}"
+                                            th:text="${location.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Sighting</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row m-4 border border-dark">
+                <div class="col text-center m-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date/Time of Sighting</th>
+                                <th>Super Person</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                       <tbody>
+                           <th:attr="sighting">
+                            <tr th:each="sighting : ${sightings}">
+                                <td th:text="${sighting.dateTime}">Date/Time of Sighting</td>
+                                <td th:text="${sighting.superName}">Super Person</td>
+                                <td th:text="${sighting.locationName}">Location</td>>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+ </div> 

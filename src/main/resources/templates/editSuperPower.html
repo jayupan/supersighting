@@ -1,0 +1,53 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Super Sightings</title>
+</head>
+<div class="container">
+    <div class="row m-4">
+        <div class="col text-center border border-dark">
+            <h1><a href="/" class="text-dark">Super Sighting</a></h1>
+        </div>
+    </div>
+    <div class="row m-4 border border-dark">
+        <div class="col text-center m-3">
+            <a href="supers" class="btn btn-outline-primary btn-lg">Super Persons</a>
+        </div>
+        <div class="col text-center m-3">
+            <a href="locations" class="btn btn-outline-primary btn-lg">Locations</a>
+        </div>
+        <div class="col text-center m-3">
+            <a href="organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+        </div>
+        <div class="col text-center m-3">
+            <a href="sightings" class="btn btn-outline-primary btn-lg">Sightings</a>
+        </div>
+        <div class="col text-center m-3">
+            <a href="superpowers" class="btn btn-outline-primary btn-lg">Super Powers</a>
+        </div>
+    </div>
+    <div class="row m-4 border border-dark">
+        <div class="col-3 text-center m-3">
+            <span class="h3">Edit "<th th:text="${superpower.power}"></th>"</span>
+        </div>
+        <div class="col-7 text-center m-3">
+            <form action="/editSuperPower" method="POST">
+                <div class="form-group row">
+                    <label for="power1" class="col-3 col-form-label">
+                        Power</label>
+                    <div class="col-9">
+                        <input type="text" name="power1" id="power1" 
+                               class="form-control" th:value="${superpower.power}"/>
+                    </div>
+                </div>
+                <input type="hidden" name="power2" th:value="${superpower.power}"/>
+                <button type="submit" class="btn btn-primary">
+                    Update Super Power</button>
+        </div>
+    </div>
+</div>
